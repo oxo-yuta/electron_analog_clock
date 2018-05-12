@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<meta charset="UTF-8">
+  	<title>Sample</title>
+
+	<script type="text/javascript">
+		window.jQuery = window.$ = require('./js/jquery-3.3.1.min.js');
+	</script>
+
+	<link rel="stylesheet" type="text/css" href="./css/clock.css">
+
+
+</head>
+
+<body>
+	<div class="clock_wrap">
+		<div class="clock_parts clock_back_ground"></div>
+  		<div class="hour clock_parts"><br><br><br>H<br>H<br>H<br>H<br>H</div>
+		<div class="minute clock_parts">M<br>M<br>M<br>M<br>M<br>M<br>M<br>M</div>
+		<div class="second clock_parts">S<br>S<br>S<br>S<br>S<br>S<br>S<br>S</div>
+	</div>
+</body>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(function(){
+    		setInterval(function(){
+        		updateTime();
+    		},1000);
+		});
+	});
+
+	function updateTime(){
+		var time = new Date();
+	    var H = time.getHours();
+	    var M = time.getMinutes();
+	    var S = time.getSeconds();
+
+	    var HRotate = 360/12*H;
+	    var MRotate = 360/60*M;
+	    var SRotate = 360/60*S;
+
+	    console.log(HRotate);
+	    console.log(MRotate);
+	    console.log(SRotate);
+
+	    rotateClock(HRotate,MRotate,SRotate);
+
+
+	}
+
+	function rotateClock(HRotate,MRotate,SRotate){
+		var hourDOM = $('.hour')
+		var minDOM = $('.minute')
+		var secDOM = $('.second')
+
+		hourDOM.css("-webkit-transform", "rotate("+HRotate+"deg)");
+		minDOM.css("-webkit-transform", "rotate("+MRotate+"deg)");
+		secDOM.css("-webkit-transform", "rotate("+SRotate+"deg)");
+		// hourDOM.animate( { transform: 'rotate(-'+HRotate+'deg)' }, 1000 );// transform
+	}
+
+
+</script>
+</html>

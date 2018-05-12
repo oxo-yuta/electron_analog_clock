@@ -1,0 +1,36 @@
+.clock_back_ground{
+	border: 1px solid;
+	border-radius: 200px;
+	border-color: #aa00aa;
+	background-color: #fff;
+}
+
+.clock_wrap{
+	text-align: center;
+	width: 100%;
+}
+
+body{
+	margin: 0;
+    -webkit-app-region: drag;
+    height: 300px;
+    overflow: hidden;
+    -webkit-user-select: none;
+}
+
+.clock_parts{
+	position: absolute;
+	width: 300px;
+	height: 300px;
+}
+
+.hour{
+	z-index: 1;
+}
+.minute{
+	z-index: 2;
+}
+.second{
+	z-index: 3;
+}
+
